@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whayame Line</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+      
+      
+      
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+      position:fixed;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      right: 100%;
+    }
+
+    header h1 {
+      color: #38bdf8;
+      /* Animação mais intensa para o nome */
+      animation: moveTitle 2s infinite alternate;
+      display: inline-block;
+      white-space: nowrap; /* Evita que o texto quebre a linha */
+      overflow: hidden; /* Garante que o texto não saia da tela */
+    }
+
+    @keyframes moveTitle {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px); /* Movimento mais amplo */
+      }
+    }
+
+    nav {
+      background: #334155;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #94a3b8;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .container {
+      padding: 120px 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  
+  
+  
+  
+  #fuder {
+      background: #1e293b;
+      padding: 10px; /* Rodapé mais curto */
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  
+  
+ 
+  
+  
+
+    footer {
+      background: #000;
+      padding: 10px; /* Rodapé mais curto */
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    button {
+      background: #38bdf8;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    /* Menu Colateral */
+    .menu-btn {
+      position: fixed;
+      top: 9px;
+      right: 20px;
+      z-index: 1001;
+      background-color: #ff5722;
+      color: #fff;
+      padding: 12px 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+      z-index: 1000;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
+    }
+
+    .side-menu a {
+      display: block;
+      padding: 16px 30px;
+      text-decoration: none;
+      color: #1976d2;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .side-menu a:hover {
+      background-color: #bbdefb;
+      color: #0d47a1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 32px;
+      cursor: pointer;
+      color: #f44336;
+    }
+
+    /* Animações de texto */
+    .animated-text {
+      display: inline-block;
+      overflow: hidden; /* Garante que o texto não saia da tela */
+      white-space: nowrap; /* Evita que o texto quebre a linha */
+    }
+
+    .letter {
+      animation: moveLetters 2s infinite alternate;
+      display: inline-block;
+    }
+
+    @keyframes moveLetters {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Estilos dos botões */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .action-button {
+      background: #38bdf8;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 4px;
+      cursor: pointer;
+     display: flex;
+      align-items: center;
+    }
+
+    .action-button:hover {
+      background: #0ea5e9;
+    }
+
+    .action-button img {
+      width: 20px;
+      margin-right: 5px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+ 
+      
+      
+      
+      
+    }
+      
+      .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;   
+      
+    }
+      
+  </style>
+  
+  
+  
+  
+  
+  
+  
+  
+</head>
+<body>
+  <center>
+
+  <center>
+  
+     
+  
+  <header>
+    
+  <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/1750943846759.jpg
+" width="50" height="50" > 
+    
+    <h1>Sauca zeca filipe</h1>
+    
+    
+    <nav>
+      
+     
+      <a href="#sobre">Sobre</a>
+      <a href="#Hablidades">Hablidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <button class="menu-btn" onclick="openNav()">☰</button>
+
+  <div id="mySideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">--->--</a>
+    <a href="#">Home</a>
+    <a href="#sobre">Sobre Mim</a>
+    <a href="#Hablidades">Habilidades</a>
+    <a href="#">Serviços</a>
+    <a href="#">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
+
+  <br>
+  <br>
+  <div class="container">
+    <section id="sobre">
+      <h2>*******SobreMim********</h2>
+      
+      
+      
+      ________<img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/1741185807328.jpg" alt="Imagem sobre tecnologia" width="50%" height="50%">_________
+      
+      
+      
+      <p>
+        <br>
+        <span class="animated-text">
+          <span 
+            class="letter">
+Eu Sauca Zeca Filipe, estudante de Informática<b> 
+          </span>
+          
+      
+        
+
+        
+                
+        
+
+<section id="whayame-line">
+  <h1 style="font-size: 2em; color: #38bdf8; text-shadow: 2px 2px 4px #000; animation: neon 1.5s ease-in-out infinite alternate;">
+    <span style="font-weight: bold; animation: colorRotate 2.5s linear infinite;">...Whayame Line...</span>
+  </h1>
+  <p style="font-size: 1.2em; color: #fff;">
+    É uma empresa focada em <span style="color: #ff5722; animation: pulse 2s ease-in-out infinite;">formação tecnológica</span> e <span style="color: #ff9800; animation: pulse 2s ease-in-out infinite;">desenvolvimento de soluções digitais</span>. Nossa missão é capacitar pessoas que desejam aprender a <span style="color: #4caf50; animation: blink 1s steps(5, start) infinite;">criar sistemas do zero</span>, desde os fundamentos da lógica de programação até os níveis mais avançados de desenvolvimento de software.
+  </p>
+  <p style="font-size: 1.2em; color: #fff;">
+    Desenvolvemos <span style="font-weight: bold; color: #2196f3;">páginas web modernas</span>, <span style="font-weight: bold; color: #9c27b0;">sistemas personalizados</span> e oferecemos serviços de <span style="font-weight: bold; color: #e91e63;">manutenção de equipamentos informáticos</span> como computadores e redes.
+  </p>
+  <p style="font-size: 1.2em; color: #fff;">
+    Além disso, realizamos <span style="font-style: italic; color: #607d8b;">auditorias técnicas</span> em sistemas e ambientes corporativos, garantindo a segurança e o desempenho das ferramentas utilizadas por empresas e profissionais.
+  </p>
+</section>
+
+<style>
+  @keyframes neon {
+    from {
+      text-shadow: 2px 2px 4px #000, 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+    }
+    to {
+      text-shadow: 2px 2px 4px #000, 0 0 20px #38bdf8, 0 0 30px #38bdf8;
+    }
+  }
+
+  @keyframes colorRotate {
+    0% {
+      color: #ef5350;
+    }
+    25% {
+      color: #ab47bc;
+    }
+    50% {
+      color: #29b6f6;
+    }
+    75% {
+      color: #26a69a;
+    }
+    100% {
+      color: #ef5350;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+   
+        
+      
+          <h2 id="Hablidades">*******Hablidades********</h2>
+      
+      
+      
+      <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015508.jpg" alt="Imagem sobre tecnologia">
+           
+            
+              
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015525.jpg"           alt="Imagem sobre tecnolo">
+      
+      
+      
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015541.jpg"alt="Imagem sobre tecnologia">
+            
+           
+      
+      
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015554.jpg" alt="Imagem sobre tecnologia">
+            
+               
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015608.jpg" alt="Imagem sobre tecnologia">
+      
+            
+      
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250827-015628.jpg" alt="Imagem sobre tecnologia">
+        
+    </section>
+
+    <section id="estatisticas">
+      <h2>Estatísticas</h2>
+      <ul>
+        <li>+ de 2 Anos</li>
+        <li>+ de 3 Projetos</li>
+        <li>100%</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+             <h2>***********Progetos**********</h2>
+      
+         
+      <div class="carousel">
+        
+        
+    <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-073650.jpg" class="active" alt="Imagem 1">
+               
+                
+    <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-073719.jpg" class="active" alt="Imagem 2">
+       
+        
+   <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-073824.jpg" class="active" alt="Imagem 3">
+       
+        
+      <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-073843.jpg" class="active" alt="Imagem 4">
+           
+        
+     <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-073954.jpg" class="active" alt="Imagem 5">
+        
+              
+     <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074012.jpg" class="active" alt="Imagem 6">
+        
+        
+            <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074049.jpg" class="active" alt="Imagem 7">
+       
+        
+        
+            <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074256.jpg" class="active" alt="Imagem 9">
+  
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074339.jpg" class="active" alt="Imagem 10">
+        
+        
+          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074426.jpg" class="active" alt="Imagem 12">
+       
+        
+                  <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074532.jpg" class="active" alt="Imagem 13">
+       
+        
+                          <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074619.jpg" class="active" alt="Imagem 14">
+       
+        
+                                <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074636.jpg" class="active" alt="Imagem 15">
+    
+        
+                                      <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074704.jpg" class="active" alt="Imagem 16">
+    
+       <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074715.jpg" class="active" alt="Imagem 17">
+   
+        
+               <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074740.jpg" class="active" alt="Imagem 18">
+   
+        
+                       <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074740.jpg" class="active" alt="Imagem 18">
+   
+        
+                       <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-074958.jpg" class="active" alt="Imagem 19">
+   
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075031.jpg" class="active" alt="Imagem 20">
+        
+        
+                <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075054.jpg" class="active" alt="Imagem 21">
+        
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075248.jpg" class="active" alt="Imagem 22">
+        
+        
+         <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075307.jpg" class="active" alt="Imagem 23">
+        
+        
+    <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075341.jpg" class="active" alt="Imagem 24">
+    
+        
+         
+    <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075445.jpg" class="active" alt="Imagem 25">    
+        
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250709-075706.jpg" class="active" alt="Imagem 26">
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250903-152528.jpg" class="active" alt="Imagem 27">
+        
+        <img src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250903-152233.jpg" class="active" alt="Imagem 28">
+       
+        
+        <img  src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250903-151935.jpg" class="active" alt="Imagem 29">
+  
+        
+        <img  src="https://raw.githubusercontent.com/Saucafilipe/sauca/main/Screenshot_20250903-151705.jpg" class="active" alt="Imagem 30">
+        
+        
+      </div>
+      <br>
+      <br>
+      <br>
+      <a href="https://www.tiktok.com/@saucafilip">''''Perfil de Diversões''''</a>
+      
+        <h2>***********Contato**********</h2>
+      <p>Email: sauca@example.com</p>
+      
+      <br>
+      
+      <p>Facebook: Sauca Filipe</p>
+      @@@@@@@<button onclick="alert('👏 Obrigado pelo carinho! Fico muito feliz que você tenha gostado do meu site!')">Gostei</button>@@@@@@@
+      <br>
+      <br>
+      <br>
+      
+      
+      
+<a href="https://github.com/Saucafilipe/sauca/raw/43f0f881cb9e93703123d3811bbeee9a4e5174e8/Whayame%20Line.apk" style="background-color: #28a745; color: white; padding: 12px 24px; text-decoration: none; font-size: 18px; border-radius: 8px;">
+  📥 Baixar Whayame Line
+</a>
+      
+      </center>
+      
+    </section>
+    
+    
+  </div>
+
+  
+  
+  
+  
+  <div class="carousel-container">
+    <div class="carousel-track" id="track">
+      
+     
+    </div>
+  </div>
+  
+  
+<footer>
+  <div class="section">
+    <p>Praticamos também auditoria do teu sistema ou da empresa que estará usando um software.</p>
+  </div>
+
+  <div class="section">
+    <h3>Links do Usuário</h3>
+    <a href="https://www.facebook.com/filipesauca.dapausa">Facebook</a>
+               <br>
+               <br>
+
+<a href="https://www.tiktok.com/@saucafilip">TIK TOK</a>
+    <br>
+    <br>
+    
+<a href="https://wa.me/244928075197?text=Gostei%20muito%20do%20teu%20site!%20Está%20muito%20bonito%20e%20profissional.%20Parabéns!%20Quero%20falar%20contigo." target="_blank">
+   WhatsApp
+</a>
+    
+    <h1 class="info-item"><i>ℹ️</i> Sobre</h1>
+    <h1 class="info-item"><i>💬</i> Mais informações</h1>
+    <h1 class="info-item"><i>📞</i> +244-928-075-197</h1>
+    <h1 class="info-item"><i>❓</i> Ajuda</h1>
+  </div>
+
+  <div class="section">
+    <h3>Localização</h3>
+    <p class="info-item"><i>📍</i> Angola-Luanda, Área territorial de 2.422 km², AO</p>
+  </div>
+</footer>
+
+  
+  
+  <p id="fuder">
+    &copy; 2025 Sauca Zeca Filipe. Todos os direitos reservados.
+  </p>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySideMenu").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySideMenu").style.width = "0";
+    }
+      
+      const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;images[current].classList.add('active');
+    }, 2000); // 3 segundos
+      
+      
+  </script>
+   </center>
+</body>
+</html>
